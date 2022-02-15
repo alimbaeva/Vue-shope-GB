@@ -2,6 +2,12 @@
   <div class="layout">
     <header>
       <h1>Shope</h1>
+      <div>
+        <input class="input" type="text" v-model="searchPrice" />
+        <button class="inputBtn" type="submit" @click="search(searchPrice)">
+          Искать
+        </button>
+      </div>
       <nav>
         <router-link to="/">Главная</router-link>
         <router-link to="/cart">корзина</router-link>
@@ -25,6 +31,7 @@ export default {
         { id: 3, name: "Пальто", price: 120 },
       ],
       cart: [],
+      searchPrice: "",
     };
   },
   methods: {
@@ -32,6 +39,9 @@ export default {
       const product = this.catalog.findIndex((product) => product.id === id);
       this.cart.push(this.catalog[product]);
       window.localStorage.setItem("cart", JSON.stringify(this.cart));
+    },
+    search(value) {
+      console.log(value);
     },
   },
   mounted() {
