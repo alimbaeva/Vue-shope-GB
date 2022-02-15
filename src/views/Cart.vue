@@ -1,6 +1,6 @@
 <template>
-  <div class="layout">
-    <router-view />
+  <div class="page">
+    <h1>Cart</h1>
   </div>
 </template>
 
