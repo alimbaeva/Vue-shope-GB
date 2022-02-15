@@ -1,6 +1,6 @@
 <template>
-  <div id='app'>
-   <h1>TODO APPLICATION</h1>
+  <div>
+   <h2>TODO APPLICATION</h2>
    <Addtodo 
       @add-todo="addTodo"
    />
@@ -11,6 +11,7 @@
    />
   </div>
 </template>
+
 
 <script>
 import TodoList from '@/components/TodoList'
@@ -49,7 +50,3 @@ export default{
 
 
 </script>
-
-<style lang="scss">
- 
-</style>
