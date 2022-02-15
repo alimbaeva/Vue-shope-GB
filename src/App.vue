@@ -7,7 +7,11 @@
         <router-link to="/cart">корзина</router-link>
       </nav>
     </header>
-    <router-view v-bind:catalog="catalog" />
+    <router-view
+      v-bind:catalog="catalog"
+      v-bind:cart="cart"
+      v-on:buy="addToCard"
+    />
   </div>
 </template>
 
@@ -22,6 +26,16 @@ export default {
       ],
       cart: [],
     };
+  },
+  methods: {
+    addToCard(id) {
+      const product = this.catalog.findIndex((product) => product.id === id);
+      this.cart.push(this.catalog[product]);
+      window.localStorage.setItem("cart", JSON.stringify(this.cart));
+    },
+  },
+  mounted() {
+    this.cart = JSON.parse(window.localStorage.getItem("cart")) || [];
   },
 };
 </script>

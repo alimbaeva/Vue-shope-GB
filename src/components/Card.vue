@@ -2,6 +2,7 @@
   <div class="card">
     <h3>{{ data.name }}</h3>
     <p>({{ data.price }}$)</p>
+    <slot></slot>
   </div>
 </template>
 
