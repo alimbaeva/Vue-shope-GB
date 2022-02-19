@@ -1,5 +1,5 @@
 {
-  "name": "veu-shop-gb",
+  "name": "shop",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,5 +25,12 @@
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0"
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "license": "ISC"
 }

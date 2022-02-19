@@ -1,26 +1,48 @@
 <template>
   <div class="page">
-    <h1>Cart</h1>
+    <h2>Cart</h2>
     <div class="cart">
-      <h1 class="">no</h1>
-      <card v-for="item of cart" v-bind:key="item.id" v-bind:data="item" />
+      <transition-group name="card">
+      <card v-for="item of cart" v-bind:key="item.id" v-bind:data="item">
+        <button class="btn" v-on:click="onRemoveBtnClk(item.id)"> Удалить </button>
+      </card>
+      </transition-group>
     </div>
   </div>
 </template>
 
 <script>
-import Card from "../components/Card.vue";
+import Card from '../components/Card.vue'
+
 export default {
-  components: { Card },
-  props: ["cart", "catalog"],
-};
+  components: {
+    Card
+  },
+  computed: {
+    cart() {
+      return this.$store.getters.getCart
+    }
+  },
+  methods: {
+    onRemoveBtnClk(id) {
+      this.$store.dispatch('removeFromCart', id)
+    }
+  }
+}
 </script>
 
-<style lang="scss">
-.cart {
-  display: flex;
+<style>
+  .cart {
+    display: flex;
+  }
+
+.card-enter-active,
+.card-leave-active {
+  transition: opacity 1s ease;
 }
-.no {
-  display: none;
+
+.card-enter-from,
+.card-leave-to {
+  opacity: 0;
 }
 </style>

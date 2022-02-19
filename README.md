@@ -1,4 +1,4 @@
-# veu-shop-gb
+# shop
 
 ## Project setup
 ```
