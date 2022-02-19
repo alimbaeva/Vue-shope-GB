@@ -1,4 +1,5 @@
 # shop
+Geek Brayns lesson 6-7
 
 ## Project setup
 ```
